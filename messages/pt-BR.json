@@ -1,0 +1,152 @@
+{
+    "LandingPage": {
+        "home": {
+            "title": "Moldando o Futuro da Tecnologia",
+            "subtitle": "Soluções inovadoras para os desafios de amanhã",
+            "button-label": "Comece Agora"
+        },
+        "projects": {
+            "title": "Projetos Principais",
+            "jetup": {
+                "title": "JetUp",
+                "description": "Busca de passagem aéreas por milhas"
+            },
+            "atency": {
+                "title": "Atency",
+                "description": "Automatize, escale e personalize suas interações no WhatsApp com nossa poderosa ferramenta de IA."
+            },
+            "dashboard": {
+                "title": "Dashboard",
+                "description": "Um dashboard onde mostra vendas e tem atualizações dos status de acordo com dados dos correios, também conta com um sistema de afiliados, onde existem vários níveis de permissões e visualizações específicas para cada cargo."
+            }
+        },
+        "services": {
+            "title": "Nossos Serviços",
+            "web-development": {
+                "title": "Desenvolvimento Web",
+                "description": "Aplicações web de ponta"
+            },
+            "cloud-solutions": {
+                "title": "Soluções em Nuvem",
+                "description": "Infraestrutura escalável e segura"
+            },
+            "chatbots": {
+                "title": "Chatbots",
+                "description": "Chatbots inteligentes para WhatsApp, Telegram, Instagram e outras plataformas, automatizando interações e otimizando seu suporte."
+            },
+            "ai-integrations": {
+                "title": "Integração de IA",
+                "description": "Sistemas inteligentes e automação"
+            }
+        },
+        "contact": {
+            "title": "Fale Conosco",
+            "email": {
+                "name-input-placeholder": "Seu Nome",
+                "email-input-placeholder": "Seu Email",
+                "message-input-placeholder": "Sua Mensagem",
+                "button-label": "Enviar Mensagem"
+            }
+        }
+    },
+    "not-found": {
+        "title": "Página não encontrada",
+        "subtitle": "Desculpe, a página que você está procurando não existe.",
+        "button-label": "Voltar para o início"
+    },
+    "sidebar": {
+    },
+    "toast": {
+        "logging-in-label": "Entrando...",
+        "logging-out-label": "Saindo...",
+        "log-in-success": "Autenticado com sucesso",
+        "log-in-failure": "Ocorreu um erro ao entrar"
+    },
+    "header": {
+        "language-selector-label": "Idioma",
+        "filters-label": "Filtros",
+        "notifications-label": "Notificações",
+        "settings-label": "Configurações",
+        "logout-label": "Sair"
+    },
+    "dashboard": {
+        "title": "Painel",
+        "cards": {
+            "tasks": {
+                "title": "Tarefas de Hoje",
+                "button-label": "Ver todas"
+            },
+            "meetings": {
+                "title": "Reuniões de Hoje",
+                "button-label": "Ver todas"
+            },
+            "activity": {
+                "title": "Atividade"
+            },
+            "worked_projects": {
+                "title": "Projetos Trabalhados",
+                "total_projects_label": "Total de Projetos"
+
+            },
+            "view_projects": {
+                "title": "Projetos"
+            }
+        }
+    },
+    "login": {
+        "title":"Seja bem-vindo",
+        "email-input-label": "Email",
+        "email-input-placeholder": "Digite seu email",
+        "password-input-label": "Senha",
+        "password-input-placeholder": "Digite sua senha",
+        "forgot-password-button": "Esqueceu a senha?",
+        "sign-in-button": "Entrar",
+        "sign-out-button-label": "Sair",
+        "cancel-button-label": "Cancelar",
+        "sign-out-dialog-title": "Confirmar",
+        "sign-out-dialog-description": "Você tem certeza que deseja sair?"
+    },
+    "notifications": {
+        "title": "Notificações"
+    },
+    "tasks": {
+        "title": "Tarefas",
+        "button-add-task": "Nova Tarefa",
+        "sheet": {
+            "trigger-label": "Nova Tarefa",
+            "title": "Nova Tarefa",
+            "title-edit": "Editar Tarefa",
+            "new-task": {
+                "label-name": "Nome",
+                "placeholder-name": "Digite o nome da tarefa",
+                "label-description": "Descrição",
+                "placeholder-description": "Digite a descrição da tarefa",
+                "has-expire-date-label": "Tem prazo?",
+                "expire-date-label": "Selecione o dia do prazo de finalização",
+                "has-done": "Finalizada?",
+                "save-label": "Salvar"
+            }
+        }
+    },
+    "projects": {
+        "title": "Projetos"
+    },
+    "kanban": {
+        "title": "Quadro Kanban"
+    },
+    "calendar": {
+        "title": "Calendário"
+    },
+    "budget": {
+        "title": "Orçamento"
+    },
+    "history": {
+        "title": "Histórico"
+    },
+    "timeline": {
+        "title": "Linha do Tempo"
+    },
+    "terms": {
+        "title": "Termos de Uso"
+    }
+}
