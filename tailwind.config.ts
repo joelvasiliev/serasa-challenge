@@ -27,7 +27,7 @@ export default {
           late: "#fa0707",
         },
         background: {
-          DEFAULT: "#000000",
+          DEFAULT: "#ffffff",
           foreground: "rgb(156 163 175 / 0.2);",
           "foreground-fullfiled": "rgb(32, 34, 36);",
         },
@@ -112,6 +112,7 @@ export default {
             transform: "translateY(calc(-100% - var(--gap)))",
           },
         },
+
         "border-beam": {
           "100%": {
             "offset-distance": "100%",

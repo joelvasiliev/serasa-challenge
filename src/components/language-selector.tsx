@@ -33,7 +33,7 @@ export function LanguageSelector() {
         <Button 
           tippy={t('header.language-selector-label')}
           side="left"
-          className='text-white w-[50px] h-[50px] hover:bg-secondary'
+          className='text-black w-[50px] h-[50px] hover:bg-gray-300 border bg-white border-gray-400/40'
         >
           <Globe />
         </Button>
@@ -41,7 +41,7 @@ export function LanguageSelector() {
       <DropdownMenuContent className='text-white bg-background border border-background-foreground' align="end">
         {languages.map((lang) => (
           <DropdownMenuItem
-            className='focus:bg-background-foreground !text-white'
+            className='focus:bg-background-foreground !text-black'
             key={lang.value}
             textValue={lang.value}
             onClick={() => handleLanguageChange(lang.value)}

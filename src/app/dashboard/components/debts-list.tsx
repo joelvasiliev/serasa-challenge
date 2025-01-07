@@ -8,15 +8,16 @@ import { AddOrEditDebtSheet } from '@/components/add-or-edit-debt-sheet'
 import { Badge } from '@/components/ui/badge'
 import { ConfirmDeleteDebit } from '@/components/confirm-delete-debt'
 import { ObservationDialog } from './observations-dialog'
+import { useTranslations } from 'next-intl'
 
 interface DebtListProps {
     debts: Debt[]
     onUpdateDebt: (debt: Debt) => void
     onDeleteDebt: (id: string) => void
-    onAddDebt: (debt: Debt) => void
 }
 
-export function DebtList({ debts, onUpdateDebt, onDeleteDebt, onAddDebt }: DebtListProps) {
+export function DebtList({ debts, onUpdateDebt, onDeleteDebt }: DebtListProps) {
+    const t = useTranslations();
     const [editingId, setEditingId] = useState<string | null>(null)
     const [search, setSearch] = useState('')
     const [statusFilter, setStatusFilter] = useState<string | undefined>("ALL")
@@ -35,23 +36,24 @@ export function DebtList({ debts, onUpdateDebt, onDeleteDebt, onAddDebt }: DebtL
 
     return (
         <div className="bg-white p-6 rounded-xl shadow-md w-full min-h-screen">
-            <h2 className="text-xl font-semibold mb-4">Lista de Dívidas</h2>
+            <h2 className="text-xl font-semibold mb-4">{t('dashboard.debt-list.title')}</h2>
             <div className="space-y-4">
                 <div className="flex justify-between">
                     <Input
-                        placeholder="Buscar por título..."
+                        placeholder={t('dashboard.debt-list.table.search-placeholder')}
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         className="max-w-sm"
                         />
                     <Select defaultValue='ALL' onValueChange={setStatusFilter} value={statusFilter}>
                     <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Filtrar por status" />
+                        <SelectValue placeholder={t('dashboard.debt-list.table.filter-placeholder')} />
                     </SelectTrigger>
                     <SelectContent className='bg-white'>
-                        <SelectItem value={"ALL"}>Todos</SelectItem>
-                        <SelectItem value="PENDING">Pendente</SelectItem>
-                        <SelectItem value="PAID">Pago</SelectItem>
+                        <SelectItem value={"ALL"}>{t('dashboard.status.all') || 'Todos'}</SelectItem>
+                        <SelectItem value="PENDING">{t('dashboard.status.pending') || 'Pendente'}</SelectItem>
+                        <SelectItem value="PAID">{t('dashboard.status.paid') || 'Pago'}</SelectItem>
+                        <SelectItem value="LATE">{t('dashboard.status.late') || 'Atrasado'}</SelectItem>
                     </SelectContent>
                     </Select>
                 </div>
@@ -59,12 +61,12 @@ export function DebtList({ debts, onUpdateDebt, onDeleteDebt, onAddDebt }: DebtL
                 <Table>
                     <TableHeader>
                     <TableRow>
-                        <TableHead>Título</TableHead>
-                        <TableHead>Valor</TableHead>
-                        <TableHead>Vencimento</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Observações</TableHead>
-                        <TableHead>Ações</TableHead>
+                        <TableHead>{t('dashboard.debt-list.table.title')}</TableHead>
+                        <TableHead>{t('dashboard.debt-list.table.value')}</TableHead>
+                        <TableHead>{t('dashboard.debt-list.table.expires')}</TableHead>
+                        <TableHead>{t('dashboard.debt-list.table.status')}</TableHead>
+                        <TableHead>{t('dashboard.debt-list.table.obs')}</TableHead>
+                        <TableHead>{t('dashboard.debt-list.table.actions.title')}</TableHead>
                     </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -80,9 +82,9 @@ export function DebtList({ debts, onUpdateDebt, onDeleteDebt, onAddDebt }: DebtL
                                             ${debt.status === "PAID" && "bg-status-paid"}
                                             ${debt.status === "LATE" && "bg-status-late"}
                                          `}>
-                                {debt.status === "PENDING" && "Pendente"}
-                                {debt.status === "PAID" && "Pago"}
-                                {debt.status === "LATE" && "Atrasado"}
+                                {debt.status === "PENDING" && t('dashboard.status.pending')}
+                                {debt.status === "PAID" && t('dashboard.status.paid')}
+                                {debt.status === "LATE" && t('dashboard.status.late')}
                             </Badge>
                         </TableCell>
                         <TableCell><ObservationDialog debt={debt} observation={debt.observations} /></TableCell>
@@ -95,13 +97,13 @@ export function DebtList({ debts, onUpdateDebt, onDeleteDebt, onAddDebt }: DebtL
                                 debt={debt}
                                 onUpdateDebt={onUpdateDebt}
                             >
-                                <Button onClick={() => handleEdit(debt)} variant="outline" size="sm" className="mr-2 rounded-xl text-white">
-                                    Editar
+                                <Button onClick={() => handleEdit(debt)} variant="outline" size="sm" className="mr-2 rounded-xl">
+                                    {t('dashboard.debt-list.table.actions.button-edit')}
                                 </Button>
                             </AddOrEditDebtSheet>
                             <ConfirmDeleteDebit onDeleteDebt={onDeleteDebt} debt={debt}>
                                 <Button variant="destructive" size="sm" className='rounded-xl text-white'>
-                                    Excluir
+                                    {t('dashboard.debt-list.table.actions.button-delete')}
                                 </Button>
                             </ConfirmDeleteDebit>
                         </TableCell>

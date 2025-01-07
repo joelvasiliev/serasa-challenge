@@ -10,7 +10,7 @@ export function LogoutButton(){
             <Button 
                 tippy={t('header.logout-label')}
                 side="left"
-                variant="ghost" className="text-secondary bg-background-foreground-fullfiled rounded-full h-[50px] w-[50px] hover:text-white"
+                variant="ghost" className="text-black border border-gray-400/40 bg-white rounded-xl h-[50px] w-[50px] hover:bg-gray-300"
             >
                 <LogOut />
             </Button>

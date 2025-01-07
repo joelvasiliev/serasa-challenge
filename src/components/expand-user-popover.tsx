@@ -6,29 +6,20 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Settings2 } from "lucide-react";
 import { LogoutButton } from "@/components/logout-button";
 import { useTranslations } from "next-intl";
-import { SettingsSheet } from "@/components/settings-sheet";
-
-
+import { SettingsDialog } from "./settings-dialog";
+import { LanguageSelector } from "./language-selector";
 
 export function ExpandUserPopover({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations();
 
-
-  const SettingsIcon = () => (
-    <Button tippy={t('header.settings-label')} side="left" className={`text-white overflow-hidden w-[50px] h-[50px] bg-background-foreground-fullfiled rounded-full hover:bg-secondary`}>
-      <Settings2 />
-    </Button>
-)
-
   const icons = [
-    { icon: <SettingsSheet><SettingsIcon/></SettingsSheet>, label: "Settings" },
-    { icon: <LogoutButton />, label: "Logout" },
+    { icon: <SettingsDialog/>},
+    { icon: <LanguageSelector/>},
+    { icon: <LogoutButton /> },
   ];
 
   const itemVariants = {
@@ -63,8 +54,6 @@ export function ExpandUserPopover({ children }: { children: React.ReactNode }) {
                   variants={itemVariants}
                 >
                     {item.icon}
-
-                  
                 </motion.div>
               ))}
           </AnimatePresence>

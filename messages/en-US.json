@@ -1,151 +1,168 @@
 {
-    "LandingPage": {
-        "home": {
-            "title": "Shaping the Future of Tech",
-            "subtitle": "Innovative solutions for tomorrow's challenges",
-            "button-label": "Get Started"
-        },
-        "projects": {
-            "title": "Featured Projects",
-            "jetup": {
-                "title": "JetUp",
-                "description": "Search for airline tickets using miles"
-            },
-            "atency": {
-                "title": "Atency",
-                "description": "Automate, scale, and personalize your interactions on WhatsApp with our powerful AI tool."
-            },
-            "dashboard": {
-                "title": "Dashboard",
-                "description": "A dashboard that displays sales and updates statuses based on data from the postal service. It also includes an affiliate system with various permission levels and specific views for each role."
-            }
-        },
-        "services": {
-            "title": "Our Services",
-            "web-development": {
-                "title": "Web Development",
-                "description": "Cutting-edge web applications"
-            },
-            "cloud-solutions": {
-                "title": "Cloud Solutions",
-                "description": "Scalable and secure infrastructure"
-            },
-            "chatbots": {
-                "title": "Chatbots",
-                "description": "Smart chatbots for WhatsApp, Telegram, Instagram, and other platforms, automating interactions and optimizing your support."
-            },
-            "ai-integrations": {
-                "title": "AI Integration",
-                "description": "Intelligent systems and automation"
-            }
-        },
-        "contact": {
-            "title": "Contact Us",
-            "email": {
-                "name-input-placeholder": "Your Name",
-                "email-input-placeholder": "Your Email",
-                "message-input-placeholder": "Your Email",
-                "button-label": "Send Message"
-            }
-        }
-    },
     "not-found": {
         "title": "Page not found",
         "subtitle": "Sorry, the page you are looking for does not exist.",
-        "button-label": "Back to home"
+        "button-label": "Back to Home"
     },
     "sidebar": {
     },
     "toast": {
         "logging-in-label": "Logging in...",
         "logging-out-label": "Logging out...",
-        "log-in-success": "Successfully authenticated",
-        "log-in-failure": "An error occurred while logging in"
+        "log-in-success": "Authenticated successfully",
+        "log-in-failure": "An error occurred while logging in",
+        "invalid-credentials": "Invalid email or password",
+        "passwords-doesnt-match": "Passwords do not match",
+        "creating-user": "Creating user...",
+        "created-user": "User created successfully",
+        "internal-server-error": "We are experiencing issues with our services, please try again later."
     },
     "header": {
         "language-selector-label": "Language",
-        "filters-label": "Filters",
-        "notifications-label": "Notifications",
         "settings-label": "Settings",
         "logout-label": "Logout"
     },
-    "dashboard": {
-        "title": "Dashboard",
-        "cards": {
-            "tasks": {
-                "title": "Today's Tasks",
-                "button-label": "View all"
-            },
-            "meetings": {
-                "title": "Today's Meetings",
-                "button-label": "View all"
-            },
-            "activity": {
-                "title": "Activity"
-            },
-            "worked_projects": {
-                "title": "Worked Projects",
-                "total_projects_label": "Total Projects"
-            },
-            "view_projects": {
-                "title": "Projects"
-            }
-        }
-    },
     "login": {
+        "tab": "Login",
         "title": "Welcome",
+        "subtitle": "Enter your credentials to access your account",
         "email-input-label": "Email",
-        "email-input-placeholder": "Enter your email",
+        "email-input-placeholder": "your@email.com",
         "password-input-label": "Password",
-        "password-input-placeholder": "Enter your password",
-        "forgot-password-button": "Forgot your password?",
         "sign-in-button": "Sign In",
-        "sign-out-button-label": "Sign Out",
         "cancel-button-label": "Cancel",
         "sign-out-dialog-title": "Confirm",
-        "sign-out-dialog-description": "Are you sure you want to sign out?"
+        "sign-out-button-label": "Log out",
+        "sign-out-dialog-description": "Are you sure you want to log out?"
     },
-    "notifications": {
-        "title": "Notifications"
+    "register": {
+        "tab": "Register",
+        "title": "Create your account",
+        "subtitle": "Fill out the details below to register",
+        "email-input-label": "Email",
+        "email-input-placeholder": "your@email.com",
+        "password-input-label": "Password",
+        "password-confirmation-input-label": "Password Confirmation",
+        "button-label": "Register"
     },
-    "tasks": {
-        "title": "Tasks",
-        "button-add-task": "New Task",
-        "sheet": {
-            "trigger-label": "New Task",
-            "title": "New Task",
-            "title-edit": "Edit Task",
-            "new-task": {
-                "label-name": "Name",
-                "placeholder-name": "Enter the task name",
-                "label-description": "Description",
-                "placeholder-description": "Enter the task description",
-                "has-expire-date-label": "Has a deadline?",
-                "expire-date-label": "Select the deadline date",
-                "has-done": "Completed?",
-                "save-label": "Save"
+    "settings": {
+      "account": {
+        "title": "My Account",
+        "email": "Email",
+        "role": "Role",
+        "language": "Language"
+      },
+      "membership": {
+        "label": "Management",
+        "title": "Members",
+        "search": "Search",
+        "add-user": "Create User",
+        "prev-page": "Previous",
+        "page-separator": "of",
+        "next-page": "Next"
+      }
+    },
+    "dashboard": {
+        "title": "Debt Dashboard",
+        "role": {
+            "admin": "Administrator",
+            "member": "Member"
+        },
+        "status": {
+                "all": "All",
+                "pending": "Pending",
+                "paid": "Paid",
+                "late": "Late"
+            },
+        "filters": {
+            "today": "Today",
+            "yesterday": "Yesterday",
+            "last-seven-days": "Last 7 days",
+            "last-month": "Last 30 days",
+            "last-sixty-days": "Last 60 days"
+        },
+        "graphs": {
+            "title": "Debt Chart",
+            "checkbox-label": "Show graphs",
+            "card": {
+                "total-label": "Total Debts",
+                "pending-label": "Pending Debts",
+                "paid-label": "Paid Debts",
+                "late-label": "Late Debts",
+                "new-debt": "New Debt"
+            }
+        },
+        "debt-list": {
+            "title": "Debt List",
+            "table": {
+                "search-placeholder": "Search by title...",
+                "filter-placeholder": "Filter by status",
+                "title": "Title",
+                "value": "Value",
+                "expires": "Due Date",
+                "status": "Status",
+                "obs": "Notes",
+                "actions": {
+                    "title": "Actions",
+                    "button-edit": "Edit",
+                    "button-delete": "Delete"
+                }
             }
         }
     },
-    "projects": {
-        "title": "Projects"
-    },
-    "kanban": {
-        "title": "Kanban Board"
-    },
-    "calendar": {
-        "title": "Calendar"
-    },
-    "budget": {
-        "title": "Budget"
-    },
-    "history": {
-        "title": "History"
-    },
-    "timeline": {
-        "title": "Timeline"
-    },
-    "terms": {
-        "title": "Terms of Use"
+    "LandingPage": {
+        "header": {
+            "resources": "Resources",
+            "help": "How It Works",
+            "feedbacks": "Testimonials"
+        },
+        "hero": {
+            "title": "Manage your debts with ease",
+            "subtitle": "Organize your finances, track your payments, and achieve financial freedom with Serasa.",
+            "button": "Get Started"
+        },
+        "resources": {
+            "title": "Key Features",
+            "register": {
+                "title": "Debt Registration",
+                "subtitle": "Easily register your debts with details like title, value, due date, and status."
+            },
+            "summary": {
+                "title": "Financial Summary",
+                "subtitle": "View a dashboard with total debts, pending amount, and number of paid debts."
+            },
+            "security": {
+                "title": "Security",
+                "subtitle": "Secure authentication to protect your personal financial data."
+            }
+        },
+        "help": {
+            "title": "How It Works",
+            "step_one": {
+                "title": "Sign Up",
+                "subtitle": "Create your free account in just a few seconds."
+            },
+            "step_two": {
+                "title": "Add Your Debts",
+                "subtitle": "Register all your debts with important details."
+            },
+            "step_three": {
+                "title": "Manage and Track",
+                "subtitle": "Monitor your progress and stay in control of your finances."
+            }
+        },
+        "feedbacks": {
+            "title": "What our users say"
+        },
+        "contact": {
+            "title": "Ready to take control of your debts?",
+            "subtitle": "Join thousands of users already on their way to financial freedom.",
+            "button": "Get Started for Free"
+        },
+        "footer": {
+            "copyright": "© 2025 Serasa. All rights reserved.",
+            "terms": "Terms of Service",
+            "privacy": "Privacy"
+        }
     }
 }

@@ -9,17 +9,18 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Input } from "./ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Button } from "./ui/button";
 import { useForm, useWatch } from "react-hook-form";
-import { Debt, DebtStatus } from "@prisma/client";
+import { Debt } from "@prisma/client";
 import { toast } from "sonner";
-import { Badge } from "./ui/badge";
-import { CheckIcon } from "lucide-react";
 import StatusBadge from "./status-badge";
 import { createDebt } from "@/actions/debts/create-debt";
 import { useUser } from "@/hooks/use-user";
 import { editDebt } from "@/actions/debts/edit-debt";
+import { BrazilianCurrencyInput } from "./money-input";
+import { Calendar } from "./ui/calendar";
+import { Popover } from "./ui/popover";
+import { PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 
 interface AddDebtFormProps {
   children: React.ReactNode;
@@ -148,17 +149,32 @@ export function AddOrEditDebtSheet({
               placeholder="Título da dívida"
               required
             />
-            <Input
-              {...form.register("value")}
-              type="number"
-              placeholder="Valor"
-              required
-            />
-            <Input
-              {...form.register("dueDate")}
-              type="date"
-              required
-            />
+            <BrazilianCurrencyInput form={form} name="value"/>
+            
+            <Popover>
+              <PopoverTrigger>
+                <Input
+                  {...form.register("dueDate")}
+                  type="date"
+                  contentEditable={false}
+                  required
+                  className="select-none cursor-pointer"
+                  />
+              </PopoverTrigger>
+              <PopoverContent>
+              <Calendar
+                mode="single"
+                selected={dueDate ? new Date(dueDate) : undefined}
+                onSelect={(date: Date | undefined) => {
+                  if (date) {
+                    form.setValue("dueDate", date.toISOString().slice(0, 10));
+                  }
+                }}
+                className="bg-white rounded-md border shadow"
+              />
+              </PopoverContent>
+            </Popover>
+
             
             <Input
               {...form.register("observations")}
@@ -194,7 +210,7 @@ export function AddOrEditDebtSheet({
             <Button
               type="submit"
               variant={"outline"}
-              className="text-white w-full"
+              className="w-full"
             >
               {debt ? "Salvar Alterações" : "Adicionar Dívida"}
             </Button>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { useState, useEffect } from "react";
 import { AddOrEditDebtSheet } from "@/components/add-or-edit-debt-sheet";
+import { useTranslations } from "next-intl";
 
 interface DebtSummaryProps {
     debts: Debt[];
@@ -18,6 +19,7 @@ export function DebtSummary({ debts, onAddDebt }: DebtSummaryProps) {
     const [paidDebts, setPaidDebts] = useState(0);
     const [lateDebts, setLateDebts] = useState(0);
     const [openNewDebt, setOpenNewDebt] = useState(false);
+    const t = useTranslations('dashboard');
 
     useEffect(() => {
         setTotalDebts(debts.length);
@@ -39,35 +41,37 @@ export function DebtSummary({ debts, onAddDebt }: DebtSummaryProps) {
     }, [debts]);
 
     return (
-        <Card className="bg-white flex justify-between items-center p-6 shadow-md mb-6 rounded-2xl">
-            <div className="flex gap-12 row-span-2">
+        <Card className="bg-white flex flex-wrap sm:flex-nowrap justify-between items-center p-6 shadow-md mb-6 rounded-2xl">
+            <div className="grid grid-cols-2 gap-4 w-full sm:grid-cols-4 sm:gap-8 md:flex md:col-span-2">
                 <div>
-                    <p className="text-sm text-gray-600">Total de Dívidas</p>
+                    <p className="text-sm text-gray-600">{t('graphs.card.total-label')}</p>
                     <p className="text-2xl font-bold">{totalDebts}</p>
                 </div>
                 <div>
-                    <p className="text-sm text-gray-600">Dívidas Pendentes</p>
+                    <p className="text-sm text-gray-600">{t('graphs.card.pending-label')}</p>
                     <p className="text-2xl font-bold">R$ {totalPendingAmount.toFixed(2)}</p>
                 </div>
                 <div>
-                    <p className="text-sm text-gray-600">Dívidas Pagas</p>
+                    <p className="text-sm text-gray-600">{t('graphs.card.paid-label')}</p>
                     <p className="text-2xl font-bold">R$ {paidDebts.toFixed(2)}</p>
                 </div>
                 <div>
-                    <p className="text-sm text-gray-600">Dívidas Atrasadas</p>
+                    <p className="text-sm text-gray-600">{t('graphs.card.late-label')}</p>
                     <p className="text-2xl font-bold">R$ {lateDebts.toFixed(2)}</p>
                 </div>
             </div>
-            <AddOrEditDebtSheet
-                open={openNewDebt}
-                setIsOpen={setOpenNewDebt}
-                onAddDebt={onAddDebt}
-            >
-                <Button className="text-white space-x-2 p-3" variant={"outline"}>
-                    <Plus />
-                    <p className="text-[15px]">Nova dívida</p>
-                </Button>
-            </AddOrEditDebtSheet>
+            <div className="w-full sm:w-auto mt-4 sm:mt-0 flex justify-center">
+                <AddOrEditDebtSheet
+                    open={openNewDebt}
+                    setIsOpen={setOpenNewDebt}
+                    onAddDebt={onAddDebt}
+                >
+                    <Button className="space-x-2 p-3" variant={"outline"}>
+                        <Plus />
+                        <p className="text-[15px]">{t('graphs.card.new-debt')}</p>
+                    </Button>
+                </AddOrEditDebtSheet>
+            </div>
         </Card>
     );
 }

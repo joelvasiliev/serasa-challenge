@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ExpandUserPopover } from "./expand-user-popover";
 import { UserProfileButton } from "./user-profile-button";
 import Image from 'next/image';
+import { useTranslations } from "next-intl";
 
 type HeaderProps = {
     landing_page?: boolean
@@ -11,6 +12,7 @@ type HeaderProps = {
 export function Header({
     landing_page
 }: HeaderProps){
+    const t = useTranslations('LandingPage');
     return (
         <header className="px-4 lg:px-6 h-20 flex items-center justify-between">
             <Link className="flex items-center justify-center hover:scale-105" href="#">
@@ -21,13 +23,13 @@ export function Header({
             landing_page ?
             <nav className="ml-auto hidden md:flex gap-4 sm:gap-6">
                 <Link className="text-[18px] hover:scale-105" href="#features">
-                    Recursos
+                    {t('header.resources')}
                 </Link>
                 <Link className="text-[18px] hover:scale-105" href="#how-it-works">
-                    Como Funciona
+                    {t('header.help')}
                 </Link>
                 <Link className="text-[18px] hover:scale-105" href="#testimonials">
-                    Depoimentos
+                    {t('header.feedbacks')}
                 </Link>
             </nav>
             :

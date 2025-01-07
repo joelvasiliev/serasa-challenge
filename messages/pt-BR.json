@@ -1,54 +1,4 @@
 {
-    "LandingPage": {
-        "home": {
-            "title": "Moldando o Futuro da Tecnologia",
-            "subtitle": "Soluções inovadoras para os desafios de amanhã",
-            "button-label": "Comece Agora"
-        },
-        "projects": {
-            "title": "Projetos Principais",
-            "jetup": {
-                "title": "JetUp",
-                "description": "Busca de passagem aéreas por milhas"
-            },
-            "atency": {
-                "title": "Atency",
-                "description": "Automatize, escale e personalize suas interações no WhatsApp com nossa poderosa ferramenta de IA."
-            },
-            "dashboard": {
-                "title": "Dashboard",
-                "description": "Um dashboard onde mostra vendas e tem atualizações dos status de acordo com dados dos correios, também conta com um sistema de afiliados, onde existem vários níveis de permissões e visualizações específicas para cada cargo."
-            }
-        },
-        "services": {
-            "title": "Nossos Serviços",
-            "web-development": {
-                "title": "Desenvolvimento Web",
-                "description": "Aplicações web de ponta"
-            },
-            "cloud-solutions": {
-                "title": "Soluções em Nuvem",
-                "description": "Infraestrutura escalável e segura"
-            },
-            "chatbots": {
-                "title": "Chatbots",
-                "description": "Chatbots inteligentes para WhatsApp, Telegram, Instagram e outras plataformas, automatizando interações e otimizando seu suporte."
-            },
-            "ai-integrations": {
-                "title": "Integração de IA",
-                "description": "Sistemas inteligentes e automação"
-            }
-        },
-        "contact": {
-            "title": "Fale Conosco",
-            "email": {
-                "name-input-placeholder": "Seu Nome",
-                "email-input-placeholder": "Seu Email",
-                "message-input-placeholder": "Sua Mensagem",
-                "button-label": "Enviar Mensagem"
-            }
-        }
-    },
     "not-found": {
         "title": "Página não encontrada",
         "subtitle": "Desculpe, a página que você está procurando não existe.",
@@ -60,93 +10,159 @@
         "logging-in-label": "Entrando...",
         "logging-out-label": "Saindo...",
         "log-in-success": "Autenticado com sucesso",
-        "log-in-failure": "Ocorreu um erro ao entrar"
+        "log-in-failure": "Ocorreu um erro ao entrar",
+        "invalid-credentials": "Email ou senha inválidos",
+        "passwords-doesnt-match": "As senhas não coincidem",
+        "creating-user": "Criando usuário...",
+        "created-user": "Usuário criado com sucesso",
+        "internal-server-error": "Estamos com problemas em nossos serviços, por favor tente novamente mais tarde."
     },
     "header": {
         "language-selector-label": "Idioma",
-        "filters-label": "Filtros",
-        "notifications-label": "Notificações",
         "settings-label": "Configurações",
         "logout-label": "Sair"
     },
-    "dashboard": {
-        "title": "Painel",
-        "cards": {
-            "tasks": {
-                "title": "Tarefas de Hoje",
-                "button-label": "Ver todas"
-            },
-            "meetings": {
-                "title": "Reuniões de Hoje",
-                "button-label": "Ver todas"
-            },
-            "activity": {
-                "title": "Atividade"
-            },
-            "worked_projects": {
-                "title": "Projetos Trabalhados",
-                "total_projects_label": "Total de Projetos"
-
-            },
-            "view_projects": {
-                "title": "Projetos"
-            }
-        }
-    },
     "login": {
+        "tab": "Login",
         "title":"Seja bem-vindo",
+        "subtitle": "Digite suas credenciais para acessar sua conta",
         "email-input-label": "Email",
-        "email-input-placeholder": "Digite seu email",
+        "email-input-placeholder": "seu@email.com",
         "password-input-label": "Senha",
-        "password-input-placeholder": "Digite sua senha",
-        "forgot-password-button": "Esqueceu a senha?",
         "sign-in-button": "Entrar",
-        "sign-out-button-label": "Sair",
         "cancel-button-label": "Cancelar",
         "sign-out-dialog-title": "Confirmar",
+        "sign-out-button-label": "Sair",
         "sign-out-dialog-description": "Você tem certeza que deseja sair?"
     },
-    "notifications": {
-        "title": "Notificações"
+    "register": {
+        "tab": "Registro",
+        "title": "Crie sua conta",
+        "subtitle": "Preencha os dados abaixo para se registrar",
+        "email-input-label": "Email",
+        "email-input-placeholder": "seu@email.com",
+        "password-input-label": "Senha",
+        "password-confirmation-input-label": "Confirmação da senha",
+        "button-label": "Registrar"
     },
-    "tasks": {
-        "title": "Tarefas",
-        "button-add-task": "Nova Tarefa",
-        "sheet": {
-            "trigger-label": "Nova Tarefa",
-            "title": "Nova Tarefa",
-            "title-edit": "Editar Tarefa",
-            "new-task": {
-                "label-name": "Nome",
-                "placeholder-name": "Digite o nome da tarefa",
-                "label-description": "Descrição",
-                "placeholder-description": "Digite a descrição da tarefa",
-                "has-expire-date-label": "Tem prazo?",
-                "expire-date-label": "Selecione o dia do prazo de finalização",
-                "has-done": "Finalizada?",
-                "save-label": "Salvar"
+    "settings": {
+      "account": {
+        "title": "Minha conta",
+        "email": "Email",
+        "role": "Cargo",
+        "language": "Idioma"
+      },
+      "membership": {
+        "label": "Administração",
+        "title": "Membros",
+        "search": "Pesquisar",
+        "add-user": "Criar Usuário",
+        "prev-page": "Anterior",
+        "page-separator": "de",
+        "next-page": "Próxima"
+      }
+    },
+    "dashboard": {
+        "title": "Painel de Dívidas",
+        "role": {
+            "admin": "Administrador",
+            "member": "Membro"
+        },
+        "status": {
+                "all": "Todos",
+                "pending": "Pendente",
+                "paid": "Pago",
+                "late": "Atrasado"
+            },
+        "filters": {
+            "today": "Hoje",
+            "yesterday": "Ontem",
+            "last-seven-days": "Últimos 7 dias",
+            "last-month": "Últimos 30 dias",
+            "last-sixty-days": "Últimos 60 dias"
+        },
+        "graphs": {
+            "title": "Gráfico de dívidas",
+            "checkbox-label": "Mostrar gráficos",
+            "card": {
+                "total-label": "Total de Dívidas",
+                "pending-label": "Dívidas Pendentes",
+                "paid-label": "Dívidas Pagas",
+                "late-label": "Dívidas Atrasadas",
+                "new-debt": "Nova dívida"
+            }
+        },
+        "debt-list": {
+            "title": "Lista de Dívidas",
+            "table": {
+                "search-placeholder": "Buscar por título...",
+                "filter-placeholder": "Filtrar por status",
+                "title": "Título",
+                "value": "Valor",
+                "expires": "Vencimento",
+                "status": "Status",
+                "obs": "Observações",
+                "actions": {
+                    "title": "Ações",
+                    "button-edit": "Editar",
+                    "button-delete": "Excluir"
+                }
             }
         }
     },
-    "projects": {
-        "title": "Projetos"
-    },
-    "kanban": {
-        "title": "Quadro Kanban"
-    },
-    "calendar": {
-        "title": "Calendário"
-    },
-    "budget": {
-        "title": "Orçamento"
-    },
-    "history": {
-        "title": "Histórico"
-    },
-    "timeline": {
-        "title": "Linha do Tempo"
-    },
-    "terms": {
-        "title": "Termos de Uso"
+    "LandingPage": {
+        "header": {
+            "resources": "Recursos",
+            "help": "Como Funciona",
+            "feedbacks": "Depoimentos"
+        },
+        "hero": {
+            "title": "Gerencie suas dívidas com facilidade",
+            "subtitle": "Organize sua vida financeira, acompanhe seus pagamentos e alcance a liberdade financeira com Serasa.",
+            "button": "Comece Agora"
+        },
+        "resources": {
+            "title": "Recursos Principais",
+            "register": {
+                "title": "Cadastro de Dívidas",
+                "subtitle": "Registre facilmente suas dívidas com detalhes como título, valor, data de vencimento e status."
+            },
+            "summary": {
+                "title": "Resumo Financeiro",
+                "subtitle": "Visualize um painel com o total de dívidas, valor pendente e quantidade de dívidas pagas."
+            },
+            "security": {
+                "title": "Segurança",
+                "subtitle": "Autenticação segura para proteger seus dados financeiros pessoais."
+            }
+        },
+        "help": {
+            "title": "Como Funciona",
+            "step_one": {
+                "title": "Cadastre-se",
+                "subtitle": "Crie sua conta gratuitamente em poucos segundos."
+            },
+            "step_two": {
+                "title": "Adicione suas dívidas",
+                "subtitle": "Registre todas as suas dívidas com detalhes importantes."
+            },
+            "step_three": {
+                "title": "Gerencie e acompanhe",
+                "subtitle": "Visualize seu progresso e mantenha-se no controle de suas finanças."
+            }
+        },
+        "feedbacks": {
+            "title": "O que nossos usuários dizem"
+        },
+        "contact": {
+            "title": "Pronto para controlar suas dívidas?",
+            "subtitle": "Junte-se a milhares de usuários que já estão no caminho da liberdade financeira.",
+            "button": "Comece Gratuitamente"
+        },
+        "footer": {
+            "copyright": "© 2025 Serasa. Todos os direitos reservados.",
+            "terms": "Termos de Serviço",
+            "privacy": "Privacidade"
+        }
     }
 }

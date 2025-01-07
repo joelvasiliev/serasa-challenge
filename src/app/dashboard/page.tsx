@@ -10,21 +10,26 @@ import { StyledCheckbox } from '@/components/styled-checkbox'
 import { getDebts } from '@/actions/debts/get-debts'
 import { useUser } from '@/hooks/use-user'
 import { motion, AnimatePresence } from "framer-motion"
+import { DateRange } from 'react-day-picker'
+import { DateRangePicker } from '@/components/date-range-picker'
+import { useTranslations } from 'next-intl'
 
 export default function Page() {
+    const t = useTranslations('dashboard')
     const [toggleDebtsGraph, setToggleDebtsGraph] = useState(true);
+    const [dateRange, setDateRange] = useState<DateRange | undefined>();
+
     const { user } = useUser();
 
     useEffect(() => {
         const fetchDebits = async () => {
             if (user) {
-                const debts = await getDebts(user.id);
-                console.log(debts);
+                const debts = await getDebts(user.id, dateRange);
                 setDebts(debts);
             }
         };
         fetchDebits();
-    }, [user]);
+    }, [user, dateRange]);
 
     const [debts, setDebts] = useState<Debt[]>([]);
 
@@ -50,14 +55,21 @@ export default function Page() {
         hidden: { x: 50, opacity: 0 },
     };
 
+    const handleDateRangeChange = (range: DateRange | undefined) => {
+        setDateRange(range);
+      };
+
     return (
         <div className="flex flex-col min-h-screen bg-gray-100 overflow-x-hidden">
             <Header />
             <main className="flex-grow p-6">
                 <div className='flex w-full justify-between'>
-                    <h1 className="text-3xl font-bold mb-6">Painel de Dívidas</h1>
+                    <div className='flex space-x-2'>
+                        <h1 className="text-3xl font-bold mb-6">{t('title')}</h1>
+                        <DateRangePicker lang="ptbr" onRangeChange={handleDateRangeChange}/>
+                    </div>
                     <div className='flex space-x-4 items-center'>
-                        <p>Mostrar gráficos</p>
+                        <p>{t('graphs.checkbox-label')}</p>
                         <StyledCheckbox 
                             initialChecked={toggleDebtsGraph} 
                             onChange={() => setToggleDebtsGraph(!toggleDebtsGraph)} 
@@ -66,7 +78,7 @@ export default function Page() {
                 </div>
                 <DebtSummary debts={debts} onAddDebt={addDebt} />
 
-                <div className="flex space-x-2">
+                <div className="flex space-x-2 flex-col md:flex-row">
                     {/* Animação da tabela de dívidas */}
                     <motion.div
                         className="transition-all duration-300 min-w-[70%]"
@@ -74,14 +86,14 @@ export default function Page() {
                         animate={toggleDebtsGraph ? "compressed" : "expanded"}
                         transition={{ duration: 0.5 }}
                     >
-                        <DebtList debts={debts} onAddDebt={addDebt} onUpdateDebt={updateDebt} onDeleteDebt={deleteDebt} />
+                        <DebtList debts={debts} onUpdateDebt={updateDebt} onDeleteDebt={deleteDebt} />
                     </motion.div>
 
                     {/* Animação do gráfico */}
                     <AnimatePresence>
                         {toggleDebtsGraph && (
                             <motion.div
-                                className="w-[40%] ml-auto"
+                                className="w-full md:w-[40%] ml-auto"
                                 variants={debtGraphVariants}
                                 initial="hidden"
                                 animate="visible"

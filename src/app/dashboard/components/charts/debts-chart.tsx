@@ -1,6 +1,7 @@
 "use client";
 
 import { Debt } from "@prisma/client";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
@@ -9,12 +10,13 @@ interface DebtChartProps {
 }
 
 export function DebtsChart({ debts }: DebtChartProps) {
+  const t = useTranslations('dashboard')
   const [isClient, setIsClient] = useState(false);
 
   const statusTranslation: Record<string, string> = {
-    PENDING: "Pendente",
-    PAID: "Pago",
-    LATE: "Atrasado",
+    PENDING: t('status.pending'),
+    PAID: t('status.paid'),
+    LATE: t('status.late'),
   };
 
   const data = useMemo(() => {
@@ -33,18 +35,10 @@ export function DebtsChart({ debts }: DebtChartProps) {
     if (data && data.length > 0) setIsClient(true); // Define que estamos no cliente
   }, [data]);
 
-  const COLORS = ["#fad107", "#34eb40", "#fa0707"];
+  const COLORS = ["#34eb40", "#fad107", "#fa0707"];
 
   if (!isClient) {
     return null;
-  }
-
-  if (!data || !data.length || data.length === 0) {
-    return (
-      <div className="flex items-center justify-center w-full h-64">
-        <p className="text-gray-500">Não há dados disponíveis para exibir.</p>
-      </div>
-    );
   }
 
   const CustomTooltip = ({ active, payload }: any) => {
@@ -96,7 +90,7 @@ export function DebtsChart({ debts }: DebtChartProps) {
                 {total}
               </tspan>
               <tspan x="50%" dy="1.7em" fontSize="1em">
-                Total de dívidas
+                {t('graphs.card.total-label')}
               </tspan>
             </text>
           </PieChart>
