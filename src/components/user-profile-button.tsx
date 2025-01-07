@@ -5,11 +5,11 @@ import { Button } from '@/components/ui/button'
 export function UserProfileButton() {
   return (
     <ExpandUserPopover>
-      <Button className="ml-8 mr-2 relative rounded-full w-[50px] h-[50px] overflow-hidden">
+      <Button className="ml-8 mr-2 relative rounded-full w-[50px] h-[50px] shadow-none border border-black overflow-hidden">
         <Image 
-          src="/user/me.jpg" 
+          src="/user.png" 
           alt="user profile photo" 
-          className="object-cover"
+          className="object-fit"
           fill
           sizes="50px"
           draggable={false}

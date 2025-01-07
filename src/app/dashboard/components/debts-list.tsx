@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { AddOrEditDebtSheet } from '@/components/add-or-edit-debt-sheet'
 import { Badge } from '@/components/ui/badge'
 import { ConfirmDeleteDebit } from '@/components/confirm-delete-debt'
+import { ObservationDialog } from './observations-dialog'
 
 interface DebtListProps {
     debts: Debt[]
@@ -84,7 +85,7 @@ export function DebtList({ debts, onUpdateDebt, onDeleteDebt, onAddDebt }: DebtL
                                 {debt.status === "LATE" && "Atrasado"}
                             </Badge>
                         </TableCell>
-                        <TableCell>{debt.observations || '-'}</TableCell>
+                        <TableCell><ObservationDialog debt={debt} observation={debt.observations} /></TableCell>
                         <TableCell>
                             <AddOrEditDebtSheet
                                 open={editingId === debt.id}

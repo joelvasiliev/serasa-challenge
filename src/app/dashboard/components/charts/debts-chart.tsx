@@ -1,34 +1,50 @@
-"use client"
+"use client";
 
-import { useEffect, useMemo, useState } from 'react'
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
-import { useTranslations } from 'next-intl'
-import { Debt } from '@prisma/client'
+import { Debt } from "@prisma/client";
+import { useEffect, useMemo, useState } from "react";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
 interface DebtChartProps {
-    debts: Debt[]
+  debts: Debt[];
 }
 
-export function DebtsChart({debts}: DebtChartProps) {
-  const [isClient, setIsClient] = useState(false)
-  const data = useMemo(() => [
-    { name: "Pendentes", value: 5 },
-    { name: "Pagos", value: 1 },
-    { name: "Atrasados", value: 1 },
-  ], []);
+export function DebtsChart({ debts }: DebtChartProps) {
+  const [isClient, setIsClient] = useState(false);
+
+  const statusTranslation: Record<string, string> = {
+    PENDING: "Pendente",
+    PAID: "Pago",
+    LATE: "Atrasado",
+  };
+
+  const data = useMemo(() => {
+    const statusCounts = debts.reduce((acc, debt) => {
+      acc[debt.status] = (acc[debt.status] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>);
+
+    return Object.entries(statusCounts).map(([name, value]) => ({
+      name: statusTranslation[name] || name, // Traduz o status ou mantém o original
+      value,
+    }));
+  }, [debts]);
 
   useEffect(() => {
-    if(data && data.length > 0)
-      setIsClient(true) // Define que estamos no cliente
-  }, [data])
+    if (data && data.length > 0) setIsClient(true); // Define que estamos no cliente
+  }, [data]);
 
-  const COLORS = ['#fad107', '#34eb40', '#fa0707']
-  const t = useTranslations();
-
-  const total = data.reduce((sum, entry) => sum + entry.value, 0) || 0
+  const COLORS = ["#fad107", "#34eb40", "#fa0707"];
 
   if (!isClient) {
-    return null // Não renderiza nada no servidor
+    return null;
+  }
+
+  if (!data || !data.length || data.length === 0) {
+    return (
+      <div className="flex items-center justify-center w-full h-64">
+        <p className="text-gray-500">Não há dados disponíveis para exibir.</p>
+      </div>
+    );
   }
 
   const CustomTooltip = ({ active, payload }: any) => {
@@ -37,12 +53,14 @@ export function DebtsChart({debts}: DebtChartProps) {
       return (
         <div className="bg-white p-2 border border-gray-200 rounded shadow">
           <p className="font-bold">{data.name}</p>
-          <p>{`${data.value} ${data.value === 1 ? 'item' : 'itens'}`}</p>
+          <p>{`${data.value} ${data.value === 1 ? "item" : "itens"}`}</p>
         </div>
       );
     }
     return null;
   };
+
+  const total = data.reduce((sum, entry) => sum + entry.value, 0) || 0;
 
   return (
     <div className="flex items-center w-full">
@@ -86,16 +104,18 @@ export function DebtsChart({debts}: DebtChartProps) {
       </div>
       <div className="mt-4 space-y-2 w-[35%]">
         {data.map((entry, index) => (
-          <div key={entry.name} className="flex items-center w-full ">
-            <div className='flex w-full items-center space-x-1 text-start'>
-              <div className="w-4 h-4 mr-2 items-center border-none rounded-full" style={{ backgroundColor: COLORS[index % COLORS.length] }}></div>
+          <div key={entry.name} className="flex items-center w-full">
+            <div className="flex w-full items-center space-x-1 text-start">
+              <div
+                className="w-4 h-4 mr-2 items-center border-none rounded-full"
+                style={{ backgroundColor: COLORS[index % COLORS.length] }}
+              ></div>
               <span className="text-black w-full">{entry.name}:</span>
             </div>
-            <p className='text-black w-full text-right'>{entry.value}</p>
+            <p className="text-black w-full text-right">{entry.value}</p>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
-

@@ -69,7 +69,7 @@ export default function Page() {
                 <div className="flex space-x-2">
                     {/* Animação da tabela de dívidas */}
                     <motion.div
-                        className="transition-all duration-300"
+                        className="transition-all duration-300 min-w-[70%]"
                         variants={debtListVariants}
                         animate={toggleDebtsGraph ? "compressed" : "expanded"}
                         transition={{ duration: 0.5 }}

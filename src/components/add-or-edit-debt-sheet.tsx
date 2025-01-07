@@ -95,6 +95,7 @@ export function AddOrEditDebtSheet({
 
       toast.dismiss();
       toast.success("Dívida salva com sucesso")
+      form.reset();
       setIsOpen(false);
       
       return;
